@@ -183,7 +183,9 @@ const footer = document.querySelector("footer");
 let footerObserver = new MutationObserver(function (mutations) {
   for (const { addedNodes } of mutations) {
     for (const node of addedNodes) {
-      ...
+      if (node.classList.contains("toolbar-statusbar")) {
+        ...
+      }
     }
   }
 });
