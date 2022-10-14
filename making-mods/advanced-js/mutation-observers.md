@@ -179,21 +179,16 @@ addressBarObserver.observe(main, { childList: true });
 // TODO: generalize and comment code
 
 ```JavaScript
-// Think new Snapshot probably broke this, so need to update
-let browser = document.getElementById("browser");
-let browserObserver = new MutationObserver(function (mutations) {
-  mutations.forEach(function (mutation) {
-    if (
-      Array.from(mutation.addedNodes).find((element) => {
-        element.classList.contains("toolbar-statusbar");
-      })
-    ) {
+const footer = document.querySelector("footer");
+let footerObserver = new MutationObserver(function (mutations) {
+  for (const { addedNodes } of mutations) {
+    for (const node of addedNodes) {
       ...
     }
-  });
+  }
 });
 
-browserObserver.observe(browser, { childList: true });
+footerObserver.observe(footer, { childList: true });
 ```
 
 // TODO: write explanation
